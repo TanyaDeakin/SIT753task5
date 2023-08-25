@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DIRECTORY_PATH = "C:\Tanya\DEAKIN\trimesters\T2 2023\753\tasks\5.1P"
+        DIRECTORY_PATH = "C:/Tanya/DEAKIN/trimesters/T22023/753/tasks/5.1P"
         TESTING_ENVIRONMENT = "DeakinTesting"
         PRODUCTION_ENVIRONMENT = "TanyaGujral"
     }
