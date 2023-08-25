@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DIRECTORY_PATH = "C:/Tanya/DEAKIN/trimesters/T22023/753/tasks/5.1P"
+        DIRECTORY_PATH = "C:/ProgramData/Jenkins/.jenkins/workspace/Task5Pipeline"
         TESTING_ENVIRONMENT = "DeakinTesting"
         PRODUCTION_ENVIRONMENT = "TanyaGujral"
     }
@@ -10,34 +10,38 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Fetching the source code from the directory path: ${env.DIRECTORY_PATH}"
-                echo "Compiling the code and generating artifacts"
+                echo "In Build stage"
+                echo "Fetch the source code from the directory path specified by the path: : ${env.DIRECTORY_PATH}"
             }
         }
 
         stage('Test') {
             steps {
-                echo "Running unit tests"
-                echo "Running integration tests"
+                echo "In Test Stage"
+                echo "Unit tests"
+                echo "Integration tests"
             }
         }
 
         stage('Code Quality Check') {
             steps {
-                echo "Checking the quality of the code"
+                echo "In Code Quality Check Stage"
+                echo "Check the quality of the code"
             }
         }
 
         stage('Deploy') {
             steps {
-                echo "Deploying the application to the ${env.TESTING_ENVIRONMENT} environment"
+                echo "In Deploy Stage"
+                echo "Deploy the application to the ${env.TESTING_ENVIRONMENT} environment"
             }
         }
 
         stage('Approval') {
             steps {
                 script {
-                    echo "Waiting for manual approval..."
+                    echo "In Approval Stage"
+                    echo "Paused 10 seconds before continuing"
                     sleep(time: 10, unit: 'SECONDS')
                 }
             }
@@ -45,7 +49,8 @@ pipeline {
 
         stage('Deploy to Production') {
             steps {
-                echo "Deploying the code to the ${env.PRODUCTION_ENVIRONMENT} environment"
+                echo "In Deploy to Production Stage"
+                echo "Deploy the code to the ${env.PRODUCTION_ENVIRONMENT} environment"
             }
         }
     }
